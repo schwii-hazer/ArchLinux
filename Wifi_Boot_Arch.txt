@@ -1,0 +1,16 @@
+systemctl restart NetworkManager.service
+systemctl --now disable iwd
+systemctl status iwd.service
+systemctl iwd.service
+
+iwctl device list
+iwctl station wlan0 scan
+iwctl station wlan0 get-networks
+iwctl station wpan connect SCHWI
+
+
+nmcli device wifi list
+nmcli device wifi -a connect SCHWI
+
+nmcli device wifi -a connect 10:7B:44:E3:B1:B8
+nmcli device wifi show

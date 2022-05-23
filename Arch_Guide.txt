@@ -1,0 +1,39 @@
+install fonte => pacman -S noto-fonts-cjk noto-fonts-emoji noto-fonts
+----------------------------------------------------------------------
+pacman -Sy gtkmm
+pacman -Sy open-vm-tools
+pacman -Sy xf86-video-vmware xf86-input-vmmouse
+systemctl enable vmtoolsd
+----------------------------------------------------------------------
+history -c
+rm -f ~/.zsh_history && kill -9 $$
+----------------------------------------------------------------------
+rm /var/lib/pacman/db.lck
+----------------------------------------------------------------------
+mount -t ntfs3 /dev/sdb1 /mnt/Ext
+----------------------------------------------------------------------
+pacman -S xarchiver p7zip zip unzip unrar
+pacman -Syyu
+----------------------------------------------------------------------
+sudo pacman -S ffmpegthumbs ffmpegthumbnailer
+pacman -S gst-libav gst-plugins-ugly
+ls /usr/share/thumbnailers/
+----------------------------------------------------------------------
+status, start, stop, restart
+systemctl enable sshd
+systemctl status sshd
+systemctl enable smb
+systemctl status smb
+----------------------------------------------------------------------
+SET TIME LOCAL
+cat /etc/adjtime
+timedatectl | grep local
+timedatectl set-local-rtc 0   -> UTC
+timedatectl set-local-rtc 1   -> LOCAL
+----------------------------------------------------------------------
+
+
+
+
+
+
