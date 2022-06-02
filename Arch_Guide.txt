@@ -16,7 +16,6 @@ pacman -S xarchiver p7zip zip unzip unrar
 pacman -Syyu
 ----------------------------------------------------------------------
 sudo pacman -S ffmpegthumbs ffmpegthumbnailer
-pacman -S gst-libav gst-plugins-ugly
 ls /usr/share/thumbnailers/
 ----------------------------------------------------------------------
 status, start, stop, restart
