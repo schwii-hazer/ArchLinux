@@ -30,8 +30,9 @@ timedatectl | grep local
 timedatectl set-local-rtc 0   -> UTC
 timedatectl set-local-rtc 1   -> LOCAL
 ----------------------------------------------------------------------
-
-
+ssh -Q key
+ssh -o HostKeyAlgorithms=ssh-rsa,ssh-dss username@old-host
+----------------------------------------------------------------------
 
 
 
