@@ -1,0 +1,36 @@
+df -h ------------------> List percent.
+df -BG/GM/GK -----------> List Giga/Mega/Kilo.
+lsblk ------------------> List store.
+blkid ------------------> List ID.
+
+cfdisk /dev/xxx --------> Disk manager
+
+// Microsoft format
+mkfs.ntfs /dev/xxx -vf -L 'Label_name'   // ntfslabel /dev/xxx Label_name
+mkfs.vfat /dev/xxx -vn 'Label_name'
+mkfs.exfat /dev/xxx -vn 'Label_name'
+
+//Linux format
+mkfs.ext2/4 /dev/xxx -L 'Label_name'     // e2label /dev/xxx Label_name
+mkfs.btrfs /dev/xxx -vf -L 'Label_name'
+
+// Format NULL
+dd if=/dev/zero of=/dev/xxx bs=512 count=1 // PenDrive forma MBR
+dd if=/dev/zero of=/dev/xxx bs=1k count=2048 // Hard format MBR
+dd if=/dev/zero of=/dev/xxx bs=4096 status=progress
+
+//Check disk Zero Fill
+badblocks -sv -c 1024 /dev/xxx -> ready only
+badblocks -wsv -c 4096 /dev/xxx -> write only
+badblocks -nsv -c 4096 /dev/xxx -> ready and write
+
+* -s = mostrar progresso
+* -v = verbose mode
+* -c 1024 = checar 1k blocos por vez
+* -n = non-destructive read-write
+* -w = destructive write-mode
+
+-o = para criar um lista com os Bad Blocks encontrados
+-n = modo não destrutivo. Apenas verifica o dispositivo
+-v = modo detalhe/verbose
+-w = modo destrutivo. Corrige os setores defeituoso que foi encontrado.
